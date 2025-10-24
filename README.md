@@ -57,10 +57,9 @@ Each model is evaluated using a simple **holdout validation (80/20 split)**.
 ## 🧩 Workflow
 
 1. **EDA** — explore the dataset, inspect distributions, detect missing values  
-2. **Model Training** — run each model notebook; metrics are automatically saved under `/outputs/`  
-3. **Feature Importance** — computed via permutation importance on the holdout set  
-4. **Model Comparison** — run `5_compare/compare_models.ipynb` to see all results in one table  
-5. **Submission** — best model predictions are saved in `/outputs/submissions/` ready for Kaggle upload  
+2. **Model Training** — run each model notebook; metrics are automatically saved under `/outputs/holdout_reports`  
+3. **Feature Importance** — computed via permutation importance on the holdout set; they are automatically saved under `/outputs/feature_importance`  
+4. **Submission** — best model predictions are saved in `/outputs/submissions/` ready for Kaggle upload  
 
 ---
 
