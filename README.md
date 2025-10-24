@@ -1,48 +1,98 @@
 # 🛣️ Kaggle Predict Accident Risk (Playground Series S5E10)
 
-**Goal:** Predict the likelihood of accidents on different types of roads.  
-This project is part of the **Kaggle Playground Series — Season 5, Episode 10**.  
-The focus is on building a **clean, interpretable baseline** using simple, well-documented models — ideal for a junior-level portfolio.
+**Goal:** Predict the *accident risk* — a continuous value between **0 and 1** — for different types of roads.  
+This project is part of **Kaggle Playground Series — Season 5, Episode 10**, and focuses on a clean, interpretable **regression baseline**, 
+ideal for a data science portfolio.
+
+---
+
+## 📂 Project Structure
+
+```
+ps_s5e10_regression_project/
+├── data/ # place train.csv, test.csv, sample_submission.csv here
+├── common/
+│ └── prep.py # shared functions: loading, preprocessing, metrics, saving
+├── notebooks/
+│ ├── 1_eda/
+│ │ └── 1_eda.ipynb # EDA for regression: preview, target histogram, missing values, feature split
+│ ├── 2_ridge/
+│ │ └── ridge.ipynb # Ridge regression baseline
+│ ├── 3_random_forest/
+│ │ └── random_forest_reg.ipynb # RandomForestRegressor experiment
+│ ├── 4_hist_gb/
+│ └── hist_gb_reg.ipynb # HistGradientBoostingRegressor experiment 
+├── outputs/
+│ ├── holdout_reports/ # *_holdout.json (RMSE, MAE, R²)
+│ ├── feature_importance/ # *_perm_importance.csv (Permutation Importance)
+│ └── submissions/ # *_reg.csv (ready Kaggle submissions)
+└── README.md
+
+```
 
 ---
 
 ## 📊 Project Overview
 
-This repository contains a reproducible workflow for exploring and modeling accident risk prediction:
-
-| Folder | Description |
-|--------|--------------|
-| `data/` | Training, test, and sample submission files |
-| `notebooks/1_eda/` | Exploratory Data Analysis — data understanding and target inspection |
-| `notebooks/2_logreg/`, `3_random_forest/`, `4_hist_gb/` | Individual model experiments |
-| `notebooks/5_compare/` | Model comparison and leaderboard summary |
-| `outputs/` | Automatically saved metrics, feature importances, and submissions |
+This repository provides a reproducible workflow for predicting accident risk using regression models.  
+Each notebook is self-contained, with concise code, clear markdown explanations, and auto-saving of results.
 
 ---
 
 ## 🧠 Models Used
-- **Logistic Regression** → simple, interpretable baseline  
-- **Random Forest Classifier** → strong tree-based benchmark  
-- **HistGradientBoostingClassifier** → efficient gradient boosting model  
 
-**Evaluation metric:** ROC AUC (Stratified 5-Fold Cross-Validation)
+- **Ridge Regression** → linear baseline with scaled numeric features  
+- **RandomForestRegressor** → strong tree-based non-linear model  
+- **HistGradientBoostingRegressor** → efficient gradient boosting approach for tabular data  
+
+**Evaluation metrics:**
+- RMSE — Root Mean Squared Error  
+- MAE — Mean Absolute Error  
+- R² — Coefficient of Determination  
+
+Each model is evaluated using a simple **holdout validation (80/20 split)**.
 
 ---
 
-## 🧩 Project Workflow
-1. **EDA** — inspect data, check balance, identify missing values  
-2. **Model Training** — run each model notebook; results auto-save to `/outputs`  
-3. **Comparison** — open `5_compare/compare_models.ipynb` for a performance summary  
-4. **Submission** — upload the best CSV from `/outputs/submissions` to Kaggle  
+## 🧩 Workflow
+
+1. **EDA** — explore the dataset, inspect distributions, detect missing values  
+2. **Model Training** — run each model notebook; metrics are automatically saved under `/outputs/`  
+3. **Feature Importance** — computed via permutation importance on the holdout set  
+4. **Model Comparison** — run `5_compare/compare_models.ipynb` to see all results in one table  
+5. **Submission** — best model predictions are saved in `/outputs/submissions/` ready for Kaggle upload  
 
 ---
 
 ## 🏁 Next Steps
-- Hyperparameter tuning for top-performing models  
-- Feature engineering (ratios, binning, interactions)  
-- Calibration of predicted probabilities  
+
+- Hyperparameter tuning for RandomForest and HGB models  
+- Advanced feature engineering (ratios, polynomial terms, interaction effects)  
+- Model ensembling or stacking for further accuracy improvements  
 
 ---
 
 ## 📎 Kaggle Competition
+
 🔗 [Playground Series — Season 5, Episode 10](https://www.kaggle.com/competitions/playground-series-s5e10)
+
+---
+
+## 📈 Results Summary
+
+| Model | RMSE | MAE | R² | Notes |
+|--------|------|-----|----|-------|
+| Ridge Regression | – | – | – |  |
+| Random Forest Regressor | – | – | – |  |
+| HistGradientBoosting Regressor | – | – | – |  |
+
+*(to be filled after all models are evaluated)*
+
+---
+
+### 💡 Notes
+
+This baseline is designed to be:
+- **Readable:** clear notebook structure and markdown commentary  
+- **Modular:** shared preprocessing and metrics in `common/prep.py`  
+- **Reproducible:** automatic saving of metrics, importances, and submissions in `/outputs/`
