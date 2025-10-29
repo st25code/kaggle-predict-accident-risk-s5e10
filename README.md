@@ -81,13 +81,30 @@ Each model is evaluated using a simple **holdout validation (80/20 split)**.
 
 | Model | RMSE | MAE | R² | Notes |
 |--------|------|-----|----|-------|
-| Ridge Regression | – | – | – |  |
-| Random Forest Regressor | – | – | – |  |
-| HistGradientBoosting Regressor | – | – | – |  |
-
-*(to be filled after all models are evaluated)*
+| **Ridge Regression** | 0.0735 | 0.0583 | 0.8042 | Simple linear baseline; light and interpretable, but lacks non-linear power |
+| **Random Forest Regressor** | 0.0575 | 0.0446 | 0.8801 | Strong non-linear model with good accuracy, but slower and more resource-heavy |
+| **HistGradientBoosting Regressor** | **0.0564** | **0.0437** | **0.8850** | Best overall — high accuracy and efficient training thanks to histogram optimization |
 
 ---
+
+### 🏁 Model Ranking
+
+| Rank | Model | Reason |
+|------|--------|--------|
+| 🥇 **HistGradientBoosting Regressor** | Best trade-off between speed and accuracy; ideal for production use |
+| 🥈 **Random Forest Regressor** | Very close accuracy, but heavier on memory and CPU |
+| 🥉 **Ridge Regression** | Lightweight and fast, but significantly less accurate |
+
+---
+
+### 💡 Conclusions
+
+- **HistGradientBoosting** outperforms all other models in both **efficiency** and **predictive power**.  
+- **Random Forest** remains a reliable, interpretable benchmark but is slower to train.  
+- **Ridge Regression** provides a simple linear baseline that’s useful for comparison,  
+  though it fails to capture complex relationships in the data.  
+
+✅ Final model choice: **HistGradientBoosting Regressor**
 
 ### 💡 Notes
 
