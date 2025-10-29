@@ -89,11 +89,11 @@ Each model is evaluated using a simple **holdout validation (80/20 split)**.
 
 ### 🏁 Model Ranking
 
-| Rank | Model | Reason |
-|------|--------|--------|
-| 🥇 **HistGradientBoosting Regressor** | Best trade-off between speed and accuracy; ideal for production use |
-| 🥈 **Random Forest Regressor** | Very close accuracy, but heavier on memory and CPU |
-| 🥉 **Ridge Regression** | Lightweight and fast, but significantly less accurate |
+| Rank | Model | 
+|------|--------|
+| 🥇 **HistGradientBoosting Regressor** | 
+| 🥈 **Random Forest Regressor** | 
+| 🥉 **Ridge Regression** | 
 
 ---
 
