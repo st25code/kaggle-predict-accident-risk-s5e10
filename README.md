@@ -89,11 +89,9 @@ Each model is evaluated using a simple **holdout validation (80/20 split)**.
 
 ### 🏁 Model Ranking
 
-| Rank | Model | 
-|------|--------|
-| 🥇 **HistGradientBoosting Regressor** | 
-| 🥈 **Random Forest Regressor** | 
-| 🥉 **Ridge Regression** | 
+🥇 **HistGradientBoosting Regressor** 
+🥈 **Random Forest Regressor** 
+🥉 **Ridge Regression** 
 
 ---
 
